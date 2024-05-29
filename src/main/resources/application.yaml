@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: shaype-notification
+
+server:
+  port : 8081
+
+#logging:
+#  level:
+#    ROOT: debug
+
+
