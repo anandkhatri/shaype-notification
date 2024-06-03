@@ -1,6 +1,6 @@
-package com.example.demo.controller;
+package com.shaype.sample.controller;
 
-import com.example.demo.service.NotificationService;
+import com.shaype.sample.processor.EventNotificationHandler;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
@@ -13,12 +13,12 @@ import shaype.openapi.example.model.NotificationDto;
 @RequiredArgsConstructor
 public class NotificationController implements ApiApi {
 
-    private final NotificationService notificationService;
+    private final EventNotificationHandler eventNotificationHandler;
 
     @Override
     public ResponseEntity<Void> notifyNotification(NotificationDto notificationDto) {
-        log.info("NotifyNotification endpoint invoke");
-        notificationService.handleNotificationEvent(notificationDto);
+        log.info("Received Shaype notification of type: {}", notificationDto.getType().getValue());
+        eventNotificationHandler.processEventNotification(notificationDto);
         return ResponseEntity.ok().build();
     }
 }
