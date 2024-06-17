@@ -12,7 +12,7 @@ Shaype offers three different types of notifications: `/email`, `/sms`, and `/ev
 2. Create and implement the event processor class by implementing the `EventNotificationProcessor` interface, e.g., `AccountStatusChangeEventProcessor`.
 
 
-## Override /email and /sms endpoint behaviour
+## Override /email and /sms endpoint behaviour (Optional)
 * Implement `notifyEmail` and `notifySMS`  default method of `ApiApi` interface in `NotificationController` class 
 
 
